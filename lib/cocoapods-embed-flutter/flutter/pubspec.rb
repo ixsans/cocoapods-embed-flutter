@@ -138,7 +138,8 @@ module Flutter
         future = @@current_pubgets[self]
         return nil if !future.nil?
         future = Concurrent::Promises.future do
-          stdout, stderr, status = Open3.capture3('flutter pub get', :chdir => self.project_path)
+          command = 'ls && flutter pub get'
+          stdout, stderr, status = Open3.capture3(command, :chdir => self.project_path)
           :result
         end
         @@current_pubgets[self] = future
