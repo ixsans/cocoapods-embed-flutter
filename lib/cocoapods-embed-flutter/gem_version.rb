@@ -4,5 +4,5 @@
 module CocoapodsEmbedFlutter
   # The version of the cocoapods-embed-flutter.
   #
-  VERSION = '0.6.1'.freeze
+  VERSION = '1.0.0'.freeze
 end

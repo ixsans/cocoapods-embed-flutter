@@ -138,7 +138,9 @@ module Flutter
         future = @@current_pubgets[self]
         return nil if !future.nil?
         future = Concurrent::Promises.future do
-          command = 'ls && flutter pub get'
+          Pod::UI.message('Run build runner and the pub get!!')
+          #command = 'mkdir yayaya && flutter pub get'
+          command = 'dart run build_runner build --delete-conflicting-outputs && flutter pub get'
           stdout, stderr, status = Open3.capture3(command, :chdir => self.project_path)
           :result
         end
